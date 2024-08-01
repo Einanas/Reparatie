@@ -35,8 +35,14 @@ const apiURL = "https://cat-fact.herokuapp.com";
 // Hieronder maak je een GET ROUTE aan
 app.get('/', function(request, response) {
   // tussen de haakjes zet je de link van de api url die je nodig hebt voor je site
-  fetchJson('https://cat-fact.herokuapp.com/facts')
+  fetchJson('https://cat-fact.herokuapp.com/facts/random')
   // tussen de haakjes zet je de link van je partials in
-  response.render('home.ejs')
+  response.render('home')
 });
 
+// to get facts ID
+app.get('/spinningwheel/:factID', function(request, response) {
+  fetchJson('https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount')
+  
+  response.render('spinningwheel.ejs')
+});
